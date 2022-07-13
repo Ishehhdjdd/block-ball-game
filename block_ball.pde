@@ -2,6 +2,7 @@ int x = 70;
 int y = 70;
 int a = 0;
 Block[] numbers = new Block[49];
+Bar bar = new Bar(450,500,100,10);
 void setup() {
     size(900, 600);
     for (int i = 0; i < 7; i++) {
@@ -22,13 +23,13 @@ void setup() {
 }
 
 void draw() {
-    
+    background(10);
     for (int i = 0; i < numbers.length; i++) {
         
         numbers[i].show();
         
     }
-
-    println(x+","+y) ;
+bar.move();
+bar.show ();
 }
 
