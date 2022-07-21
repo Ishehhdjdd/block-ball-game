@@ -1,19 +1,34 @@
-public class Block {
+public class Block{
     float x;
     float y;
     float w;
     float h;
     
-    public Block(float mx,float my,float mw,float mh) {
-        this.h = mh;
-        this.x = mx;
-        this.y = my;
-        this.w = mw;
+    public Block(float x, float y, float w, float h) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        
     }
+    
     void show() {
         
-        rect(this.x,this.y,this.w,this.h);
+        rect(x,y,w,h);
+    }
+    
+    
+    
+    boolean hit(Ball ball) {
         
-        
+        if (abs(ball.by - y) <= h / 2 + ball.radius) {
+            
+            if (x - w / 2 <= ball.bx && ball.bx <= x + w/2) {
+                
+                return true;
+                
+            }
+        }
+        return false;
     }
 }
