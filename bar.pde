@@ -1,14 +1,8 @@
 class Bar extends Block{
-
-
-    public Bar (float mx,float my,float mw,float mh ){
-super (mx,my,mw,mh);
-
-
+    Bar(float x, float y, float w ,float h){
+        super(x,y,w,h);
     }
-    void move (){
-
-
+    void move(){
         x=mouseX;
     }
 }
