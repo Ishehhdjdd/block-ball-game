@@ -1,35 +1,58 @@
-int x = 70;
-int y = 70;
-int a = 0;
-Block[] numbers = new Block[49];
-Bar bar = new Bar(450,500,100,10);
+int n = 0;
+Block[] b = new Block[1000];
+Bar bar = new Bar(450,500,80,10);
+Ball ball = new Ball(0,0,0,0);
 void setup() {
-    size(900, 600);
-    for (int i = 0; i < 7; i++) {
-        x = x + 60;
-        for (int j = 0; j < 7; j++) {
+    size(900,600);
+    
+    
+    
+    int a = 0;
+    for (int y = 100;y <=  200;y = y + 30) {
         
-            
-            y=y+20 ;
-            numbers[a] = new Block(x,y,50, 10);
-            a++;
-            
-            
+        for (int x = 100;x < 800;x = x + 60) {
+            b[a] = new Block(x,y,50,10);
+            a = a + 1;
         }
-        y= 70; 
+        
+        
     }
-    
-    
+    rectMode(CENTER);
 }
 
 void draw() {
     background(10);
-    for (int i = 0; i < numbers.length; i++) {
+    n = n + 1;
+    println("-->" + n);
+    for (Block n : b) {
         
-        numbers[i].show();
+        if (n!= null) {
+            n.show();
+        }
+        
         
     }
-bar.move();
-bar.show ();
-}
+    bar.move();
+    bar.show();
+    if (ball.dx ==  00 && ball.dy ==  0) {
+        
+        ball.moveByBar(bar);
+        if (mousePressed){
 
+
+            ball.fire();
+        }
+    } else{
+
+        ball.move(bar);
+    }
+    
+    ball.show();
+}
+void keyPressed() {
+    if (keyCode == UP) {
+        ball.fire();
+        
+        
+    }
+}
