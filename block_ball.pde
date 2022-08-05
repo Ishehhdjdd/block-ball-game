@@ -4,9 +4,6 @@ Bar bar = new Bar(450,500,80,10);
 Ball ball = new Ball(0,0,0,0);
 void setup() {
     size(900,600);
-    
-    
-    
     int a = 0;
     for (int y = 100;y <=  200;y = y + 30) {
         
