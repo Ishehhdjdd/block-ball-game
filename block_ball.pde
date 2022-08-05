@@ -43,7 +43,6 @@ void draw() {
 
         ball.move(bar);
     }
-    
     ball.show();
 }
 void keyPressed() {
