@@ -38,7 +38,7 @@ class Ball {
             
             dx = dx *-  1;
         }
-        
+      
         if (by > height) {
             
             dx = 0;
@@ -56,17 +56,16 @@ class Ball {
             
             dx = dx * - 1;
             
-            bx = bx + dx; 
-            by = by + dy;
+            bx = bx+ dx; 
+            by =by + dy;
         }
     }
-    void bounce() {
-        
-        
-        dy = dy *-1;
-        by = by + dy;
-        bx = bx + dx;
-        
-    }
-    }
-        
+          void bounce(){
+    
+    
+      dy=dy*-1 ;
+      dy=dy+dy ;
+      dx=dx+dx ;
+      
+}
+}
