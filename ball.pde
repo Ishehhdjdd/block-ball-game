@@ -43,6 +43,7 @@ class Ball {
             
             dx = 0;
             dy = 0;
+            hp -- ;
         }
         bx = bx + dx; 
         by = by + dy;

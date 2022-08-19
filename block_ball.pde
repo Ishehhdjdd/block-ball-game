@@ -1,4 +1,6 @@
 int n = 0;
+int score = 0 ; 
+int hp = 5 ;
 Block[] b = new Block[1000];
 Bar bar = new Bar(450,500,80,10);
 Ball ball = new Ball(0,0,0,0);
@@ -42,6 +44,7 @@ void draw() {
         }
         if (b[i].hit2(ball) == true) {
             ball.bounce();
+            score = score + 10 ;
             // block set null
             b[i] = null;
             break;
@@ -59,6 +62,13 @@ void draw() {
         ball.move();
     }
     ball.show(); 
+    showScoreHp ( );
+}
+void  showScoreHp ( ){
+textSize ( 36 );
+text ( "Hp"+ hp , 700,540);
+text ( "Score "+ score , 700,580);
+
 }
 void keyPressed() {
     if (keyCode == UP) {
