@@ -19,16 +19,45 @@ public class Block{
     
     
     
+   
     boolean hit(Ball ball) {
-        
-        if (abs(ball.by - y) <= h / 2 + ball.radius) {
-            
-            if (x - w / 2 <= ball.bx && ball.bx <= x + w/2) {
-                
-                return true;
-                
-            }
+        if (abs(ball.by - y) <= h / 2 + ball.radius) {            
+            return true;            
         }
+        // if( ball.by>450){
+        //     return true ;
+        // }
         return false;
+    }
+    
+    boolean hit2(Ball ball) {
+        
+        
+        if (ball.dy ==  0) {
+            return false;
+        }
+       
+        if (ball.dy < 0 && y > ball.by) {
+            return false;
+        }
+        
+        if (ball.dy > 0 && y < ball.by) {
+            return false;
+        }        
+        if (ball.dx!= 0) {
+          
+            float b = ball.by - ball.bx * (ball.dy / ball.dx);
+            float nx = (y - b) * (ball.dx / ball.dy); // 估計投影在 block 上的 x
+            //println("ball(" + ball.bx + " , " + ball.by + " )  +d(" + ball.dx + " , " + ball.dy + ")  block( " + x + " , " + y + " ) ==> nx " + nx);
+            
+            if (x - w / 2 - ball.radius <=  nx  && nx <= x + w / 2 + ball.radius) {
+                line(nx,y,ball.bx,ball.by);
+                return hit(ball);
+            }
+            return false;
+            
+        } else{
+            return hit(ball);
+        }
     }
 }

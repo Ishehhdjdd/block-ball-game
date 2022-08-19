@@ -31,38 +31,34 @@ void draw() {
     }
     bar.move();
     bar.show();
-
-    if (bar.hit(ball)==true){
-ball.bounce();
-
-
+    
+       if (bar.hit2(ball) ==  true) {
+        ball.bounce();
     }
-    for (int i = 0 ; i < b.length ; i++) {
-        if (b[i]==null) {
+    // check blocks
+    for (int i = 0; i < b.length; i++) {
+        if (b[i] == null) {
             continue;
-            
         }
-        if(b[i].hit(ball)==true ){
-
-
-           ball.bounce ();
-           b[i]=null;
-           break ;
+        if (b[i].hit2(ball) == true) {
+            ball.bounce();
+            // block set null
+            b[i] = null;
+            break;
         }
     }
-    if (ball.dx ==  00 && ball.dy ==  0) {
         
+    // ball movement
+    if (ball.dx ==  0 && ball.dy ==  0) {
+        // ball is on the bar
         ball.moveByBar(bar);
-        if (mousePressed){
-
-
+        if (mousePressed) {
             ball.fire();
         }
     } else{
-
         ball.move();
     }
-    ball.show();
+    ball.show(); 
 }
 void keyPressed() {
     if (keyCode == UP) {
